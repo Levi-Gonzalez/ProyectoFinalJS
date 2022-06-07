@@ -1,1 +1,2 @@
-console.log (productos)
+let carrito = []
+
