@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box ;
+}
+header{
+    background-color: rgb(0, 0, 8);
+    padding: 2rem;
+}
+ul{
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+}
+li{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 28px;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+    
+}
+a:hover{
+    color: rgb(11, 185, 216);
+    
+    
+}
+.carrito a{
+    font-size: 25px;
+    font-family:monospace;
+    color: rgb(203, 234, 3);
+    
+}
