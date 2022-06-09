@@ -7,6 +7,10 @@ header{
     background-color: rgb(0, 0, 8);
     padding: 2rem;
 }
+.logo{
+    width: 120px;
+    height: 120px;
+}
 ul{
     display: flex;
     list-style: none;
