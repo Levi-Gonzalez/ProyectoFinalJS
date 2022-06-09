@@ -38,7 +38,13 @@ function rellenarPagina (arrayProductos){
 
         divContainer.appendChild(div);
     }
+
+    let carritoLocalStorage = JSON.parse(localStorage.getItem("carrito"));
+    if (carritoLocalStorage){
+        carritoNav(carritoLocalStorage)
+    }
 }
+
 
 
 rellenarPagina(productos);
@@ -52,25 +58,17 @@ let botones = document.querySelectorAll(".anadirCarrito");
        elemento.addEventListener ("click", anadirCarrito)
     });
 
-  function anadirCarrito(e){
+  function anadirCarrito(e) {
 
     let carritoLocalStorage = JSON.parse(localStorage.getItem(carrito));
     
-    if(carritoLocalStorage){
+    if (carritoLocalStorage){
         carrito = carritoLocalStorage;
     }
-
-    
+        
     let index = carrito.findIndex(producto => producto.id == e.target.parentNode.parentNode.children[0].alt); 
     
-     console.log(index);
-     console.log(index);
-
-
-     
-
-
-// _______________________________________________________
+    // _______________________________________________________
     // obtener nombre del producto
     let nombre = e.target.parentNode.children[0].innerText;
     // obtener precio del producto
@@ -81,9 +79,9 @@ let botones = document.querySelectorAll(".anadirCarrito");
     let id = e.target.parentNode.parentNode.children[0].alt;
 
     // creación del objeto (tiene que ser iguales al nombre de la variables) 
-    // 
+ 
     if (index == -1){
-        const producto = new ProductoCarrito (nombre, precio, imagen,id);
+        const producto = new ProductoCarrito (nombre, precio, imagen, id);
         carrito.push(producto);
     // Si no lo encontras, entonces hacelo ↑
     }
@@ -91,25 +89,26 @@ let botones = document.querySelectorAll(".anadirCarrito");
         // suma la cantidad del producto ↓
         carrito[index].cantidad++;
         // para saber el subtotal ↓
-        carrito[index].subtotal = carrito [index].precio * carrito[index].cantidad;
+        carrito[index].subtotal = carrito[index].precio * carrito[index].cantidad;
     }
     //   implementación de localStorage: cuando se pushee se guarde el carrito, utilizo "setItem" para generar un nuevo item
     // implementación de JSON
     localStorage.setItem("carrito", JSON.stringify(carrito))
-    carritoNav (carrito);
-
-}
+    // carritoNav (carrito); quiero hacer conteo del carrito 
+    carritoNav(carrito);
+}   
 
 function carritoNav (arrayCarrito) {
 
-    let textoCarrito = document.getElementById ("carrito1")
+    let textoCarrito = document.getElementById ("carrito00")
 
     let totalProductos = 0;
 
-    for(let producto of arrayCarrito)
+    for(let producto of arrayCarrito){
     totalProductos += producto.cantidad;
 
     textoCarrito.innerHTML = "";
     textoCarrito.innerHTML = `<p>carrito (${totalPeoductos})</p>`
-
+    }
 }
+// CONTEO DE CARRITO A TERMINAR ↑

@@ -11,14 +11,34 @@ function rellenarCarrito (arrayCarrito){
         row.innerHTML = `<td>${producto.nombre}</td>
                          <td>$${producto.precio}</td>
                          <td>${producto.cantidad}</td>
-                         <td>${producto.cantidad}</td>
                          <td>$${producto.subtotal}</td>
-                         <td>Eliminar</td>
-                         <td>${producto.id}</td>;`
-        
+                         <th><button id="${producto.id}" class="btn btn-danger eliminarProducto">Eliminar</button></th>
+
+                        `
+                         
         tbody.appendChild(row)
 
     }
     
 }
 rellenarCarrito(carrito);
+
+// Boton eliminar
+let botonesEliminar = document.querySelectorAll(".eliminarProducto");
+
+ botonesEliminar.forEach (elemento => {
+    elemento.addEventListener ("click", eliminarProducto)
+ })
+
+//  funcion para poder eliminar cada producto.
+function eliminarProducto (e){
+
+    let index = carrito.findIndex( producto => producto.id == e.target.id);
+
+    carrito.splice (index, 1);
+
+    e.target.parentNode.parentNode.remove();
+
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+
+}

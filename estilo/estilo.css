@@ -37,3 +37,7 @@ a:hover{
     color: rgb(203, 234, 3);
     
 }
+.row{
+    width: 160vh;
+    height: 90vh;
+}

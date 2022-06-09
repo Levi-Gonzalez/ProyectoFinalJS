@@ -7,7 +7,7 @@ const productos = [
         id: 1,
     },
     {
-        nombre:"camiseta Argentina alternativa",
+        nombre:"camiseta Argentina alter.",
         precio: 11000,
         imagen: "./imagenes/arg-alt.jpg",
         id: 2,
@@ -19,7 +19,7 @@ const productos = [
         id: 3,
     },
     {
-        nombre:"camiseta PSG",
+        nombre:"camiseta paris saint germain ",
         precio: 9000,
         imagen: "/imagenes/psg.jpg",
         id: 4,
