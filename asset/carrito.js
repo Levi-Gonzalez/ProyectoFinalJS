@@ -1,5 +1,4 @@
-// optimización carrito ↓
-const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+const carrito = JSON.parse(localStorage.getItem("carrito"));
 //( Al ser un ID se utiliza "#")
 let body = document.querySelector("#tbody");
 

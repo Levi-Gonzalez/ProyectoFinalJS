@@ -40,9 +40,9 @@ function rellenarPagina (arrayProductos){
     }
 
     let carritoLocalStorage = JSON.parse(localStorage.getItem("carrito"));
-    if (carritoLocalStorage){
-        carritoNav(carritoLocalStorage)
-    }
+    
+    carritoLocalStorage && carritoNav(carritoLocalStorage)
+    
 }
 
 
