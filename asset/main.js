@@ -62,9 +62,11 @@ let botones = document.querySelectorAll(".anadirCarrito");
 
     let carritoLocalStorage = JSON.parse(localStorage.getItem(carrito));
     
-    if (carritoLocalStorage){
-        carrito = carritoLocalStorage;
-    }
+    // if (carritoLocalStorage){
+    //     carrito = carritoLocalStorage;
+    // }
+    // optimización de "if"
+    carritoLocalStorage && carrito, carritoLocalStorage;
         
     let index = carrito.findIndex(producto => producto.id == e.target.parentNode.parentNode.children[0].alt); 
     

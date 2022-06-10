@@ -36,4 +36,6 @@ const productos = [
         imagen: "./imagenes/manchester-city.jpg",
         id: 6,
     },
+
+
 ]
