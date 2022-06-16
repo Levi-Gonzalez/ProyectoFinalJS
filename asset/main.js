@@ -5,7 +5,7 @@ let carrito = [];
 
 class ProductoCarrito{
 
-    constructor (nombre, precio, imagen, cantidad, id, subtotal){
+    constructor (nombre, precio, imagen, id, subtotal){
         this.nombre = nombre ;
         this.precio = precio;
         this.imagen = imagen;
@@ -31,23 +31,26 @@ function rellenarPagina (arrayProductos){
             <div class="card-body">
                 <h5 class="card-tittle">${producto.nombre}</h5>
                 <p class="card-text">$<strong>${producto.precio}</strong></p>
-                <button class="btn btn-primary anadirCarrito">Añadir al carrito</button>
+                <button id="boton" class="btn btn-primary anadirCarrito">Añadir al carrito</button>
             </div>
         </div>
         `
 
         divContainer.appendChild(div);
     }
-
+    
     let carritoLocalStorage = JSON.parse(localStorage.getItem("carrito"));
     
-    carritoLocalStorage && carritoNav(carritoLocalStorage)
+    if (carritoLocalStorage){
+        carritoNav(carritoLocalStorage)
+    } 
+        
     
 }
-
-
-
 rellenarPagina(productos);
+
+
+
 
 // funcionamiento del botón
 
@@ -102,15 +105,46 @@ let botones = document.querySelectorAll(".anadirCarrito");
 
 function carritoNav (arrayCarrito) {
 
-    let textoCarrito = document.getElementById ("carrito00")
+    let textoCarrito = document.getElementById ("carrito-total")
 
     let totalProductos = 0;
 
     for(let producto of arrayCarrito){
     totalProductos += producto.cantidad;
-
+    }   
     textoCarrito.innerHTML = "";
-    textoCarrito.innerHTML = `<p>carrito (${totalPeoductos})</p>`
-    }
+    textoCarrito.innerHTML = `<p>carrito(${totalProductos})</p>`
 }
+
 // CONTEO DE CARRITO A TERMINAR ↑
+
+function init () 
+{
+    agregadoToastify()
+}
+
+init ();
+
+ function agregadoToastify()
+ {
+    const btn = document.getElementById ("row");
+    btn.addEventListener('click', () => {
+   
+Toastify({
+  text: "Agregado al carrito!",
+  duration: 3000,
+  destination: "http://127.0.0.1:5501/carrito.html",
+  gravity: "bottom",
+  position: "right", 
+  style: {background: "linear-gradient(to right, #00b09b, #96c93d)",
+  },
+
+}).showToast();
+    })
+    
+    
+}
+// if()
+// {
+
+// }

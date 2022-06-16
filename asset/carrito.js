@@ -15,7 +15,7 @@ function rellenarCarrito (arrayCarrito){
                          <th><button id="${producto.id}" class="btn btn-danger eliminarProducto">Eliminar</button></th>
 
                         `
-                         
+                        
         tbody.appendChild(row)
 
     }
@@ -33,7 +33,7 @@ let botonesEliminar = document.querySelectorAll(".eliminarProducto");
 //  funcion para poder eliminar cada producto.
 function eliminarProducto (e){
 
-    let index = carrito.findIndex( producto => producto.id == e.target.id);
+    let index = carrito.findIndex( producto => producto.id == e.target.id); 
 
     carrito.splice (index, 1);
 

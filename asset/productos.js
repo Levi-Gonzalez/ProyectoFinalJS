@@ -19,7 +19,7 @@ const productos = [
         id: 3,
     },
     {
-        nombre:"camiseta paris saint germain ",
+        nombre:"camiseta PSG ",
         precio: 9000,
         imagen: "/imagenes/psg.jpg",
         id: 4,
