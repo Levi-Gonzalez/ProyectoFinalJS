@@ -15,6 +15,14 @@ class ProductoCarrito{
         
     }
 }
+fetch ("./json/misProductos.json")
+.then((res)=> res.json())
+.then(misProductos => {
+    console.log(misProductos);
+    rellenarPagina(misProductos);
+    miCarrito()
+    
+})
 
 let divContainer = document.getElementById ("row")
 
@@ -47,20 +55,17 @@ function rellenarPagina (arrayProductos){
         
     
 }
-rellenarPagina(productos);
-
-
-
 
 // funcionamiento del botón
-
+function miCarrito ()
+{
 let botones = document.querySelectorAll(".anadirCarrito");
 
     // representa cada botón
     botones.forEach (elemento => {
        elemento.addEventListener ("click", anadirCarrito)
     });
-
+}
   function anadirCarrito(e) {
 
     let carritoLocalStorage = JSON.parse(localStorage.getItem(carrito));
@@ -69,7 +74,7 @@ let botones = document.querySelectorAll(".anadirCarrito");
     //     carrito = carritoLocalStorage;
     // }
     // optimización de "if"
-    carritoLocalStorage && carrito, carritoLocalStorage;
+    carritoLocalStorage ? carrito = carritoLocalStorage : "";
         
     let index = carrito.findIndex(producto => producto.id == e.target.parentNode.parentNode.children[0].alt); 
     
@@ -144,7 +149,3 @@ Toastify({
     
     
 }
-// if()
-// {
-
-// }
