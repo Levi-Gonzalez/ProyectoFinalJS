@@ -18,7 +18,6 @@ class ProductoCarrito{
 fetch ("./json/misProductos.json")
 .then((res)=> res.json())
 .then(misProductos => {
-    console.log(misProductos);
     rellenarPagina(misProductos);
     miCarrito()
     
@@ -117,8 +116,8 @@ function carritoNav (arrayCarrito) {
     for(let producto of arrayCarrito){
     totalProductos += producto.cantidad;
     }   
-    textoCarrito.innerHTML = "";
-    textoCarrito.innerHTML = `<p>carrito(${totalProductos})</p>`
+ 
+    textoCarrito.innerHTML = `<h6 class="carrito">CARRITO(${totalProductos})</h6>`
 }
 
 // CONTEO DE CARRITO A TERMINAR ↑
@@ -133,12 +132,12 @@ init ();
  function agregadoToastify()
  {
     const btn = document.getElementById ("row");
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', botones => {
    
 Toastify({
   text: "Agregado al carrito!",
   duration: 3000,
-  destination: "http://127.0.0.1:5501/carrito.html",
+  destination: "./carrito.html",
   gravity: "bottom",
   position: "right", 
   style: {background: "linear-gradient(to right, #00b09b, #96c93d)",

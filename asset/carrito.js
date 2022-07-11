@@ -2,6 +2,10 @@ const carrito = JSON.parse(localStorage.getItem("carrito"));
 //( Al ser un ID se utiliza "#")
 let body = document.querySelector("#tbody");
 
+const nCantidad = Object.values (carrito).reduce((acc, {cantidad}) => acc + cantidad, 0)
+const  nPrecio= Object.values (carrito).reduce((acc, {cantidad,precio}) => acc + cantidad * precio, 0)
+console.log(nPrecio);
+
 function rellenarCarrito (arrayCarrito){
 
     for (let producto of arrayCarrito){
@@ -42,4 +46,3 @@ function eliminarProducto (e){
     localStorage.setItem("carrito", JSON.stringify(carrito));
 
 }
-
